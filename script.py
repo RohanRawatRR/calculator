@@ -14,6 +14,10 @@ class StringCalculator:
         # Handle custom delimiter
         delimiter = ','
 
+        if numbers.startswith('//'):
+            delimiter_line, numbers = numbers.split('\n', 1)
+            delimiter = delimiter_line[2:]
+
         # Replace newlines with delimiter
         numbers = numbers.replace('\n', delimiter)
 
