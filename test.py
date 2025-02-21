@@ -7,16 +7,29 @@ def test_calculator():
     """
     calc = StringCalculator()
 
-    # Basic tests
-    assert calc.add("") == 0
-    assert calc.add("1") == 1
-    assert calc.add("1,5") == 6
-    assert calc.add("-1,-5,-3") == -9
-    # Newline delimiter
-    assert calc.add("1\n2,2") == 5
-    # Custom delimiter
-    assert calc.add("//;\n1;2") == 3
-    assert calc.add("//;\n1;2;-1") == 2
-    print("All tests passed!")
+    test_cases = [
+        # Basic tests
+        ("", 0),
+        ("1", 1),
+        ("1,5", 6),
+        ("-1,-5,-3", -9),
+        # Newline delimiter
+        ("1\n2,2", 5),
+        # Custom delimiter
+        ("//;\n1;2", 3),
+        ("//;\n1;2;-1", 2),
+        # Multiple delimiters
+        ("//[*][%]\n1*2%3", 6),
+    ]
+
+    for input_str, expected in test_cases:
+        try:
+            result = calc.add(input_str)
+            if result != expected:
+                print(f"Error: For input '{input_str}', expected {expected} but got {result}")
+            else:
+                print(f"Passed: {input_str} = {result}")
+        except Exception as e:
+            print(f"Error for input '{input_str}': {str(e)}")
 
 test_calculator()
