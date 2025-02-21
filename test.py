@@ -1,6 +1,5 @@
 from script import StringCalculator
 
-
 def test_calculator():
     """
     Test the StringCalculator class

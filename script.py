@@ -1,5 +1,6 @@
 import sys
 
+
 class StringCalculator:
     """
     A class for calculating the sum of a string of numbers
