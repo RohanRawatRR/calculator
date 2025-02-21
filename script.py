@@ -13,6 +13,10 @@ class StringCalculator:
 
         # Handle custom delimiter
         delimiter = ','
+
+        # Replace newlines with delimiter
+        numbers = numbers.replace('\n', delimiter)
+
         # Split numbers and convert to integers
         try:
             nums = [int(n.strip()) for n in numbers.split(delimiter) if n.strip()]
